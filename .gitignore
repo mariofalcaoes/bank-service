@@ -1,0 +1,91 @@
+# Compiled Java bytecode
+*.class
+
+# Maven and Gradle directories
+/target/
+/build/
+
+# IntelliJ IDEA project files
+.idea/
+/*.iws
+/*.iml
+/*.ipr
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# NetBeans project files
+/nbproject/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Gradle cache
+.gradle/
+.gradle-cache/
+
+# Gradle Wrapper files
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Logs
+*.log
+/logs/
+
+# Spring Boot-specific files
+# Exclude local configurations, secrets, and environment-specific files
+application-*.properties
+application-*.yml
+.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+._*
+
+# Java IDE-generated files
+/out/
+*.log
+
+# Lombok generated files
+.lombok/
+
+# Compiled Kotlin bytecode
+*.kotlin_module
+
+# Temporary files and backups
+*.bak
+*.tmp
+*.swp
+*.old
+
+# IDE-specific configuration directories
+.vscode/
+*.code-workspace
+
+# Test result and coverage reports
+/test-results/
+/coverage/
+*.ec
+*.exec
+
+# Docker files
+docker-compose.override.yml
+.dockerignore
+
+# User-specific files
+*.user
+.idea/
+*.iml
+.gradle/
+*.ipr
+
+# OS and miscellaneous files
+Thumbs.db
+Desktop.ini
+.DS_Store
