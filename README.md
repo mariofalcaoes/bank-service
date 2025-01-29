@@ -19,8 +19,8 @@ Follow the steps below to run the Spring Boot Java project along with Docker Com
 1. **Clone the Repository**
 
    ```bash
-   git clone <repository-url>
-   cd project-directory
+   git clone https://github.com/mariofalcaoes/bank-service.git
+   cd bank-service
 
 2. **Build the project**
 
