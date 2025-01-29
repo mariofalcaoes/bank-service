@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 
 @Builder
@@ -36,7 +36,7 @@ public class Customer {
     @NotEmpty
     private String cpf;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Account> accounts;
+    private Set<Account> accounts;
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Address address;
 }

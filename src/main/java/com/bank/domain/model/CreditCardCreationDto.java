@@ -2,6 +2,10 @@ package com.bank.domain.model;
 
 
 import com.bank.domain.CardType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,13 +23,28 @@ import java.time.LocalDateTime;
 @ToString
 @Getter
 @Setter
-public class CreditCardDto {
-    private Long id;
-    private Long accountId;
+public class CreditCardCreationDto {
+
+    @NotEmpty
+    @NotNull
     private String number;
+
+    @NotEmpty
+    @NotNull
     private String name;
+    @NotEmpty
+    @NotNull
     private String cvv;
+
+    @NotNull
     private BigDecimal limit;
-    private LocalDateTime expirationDate;
+    @NotNull
+    @Enumerated(EnumType.STRING)
     private CardType type;
+
+    @NotNull
+    private Long accountId;
+
+    @NotNull
+    private LocalDateTime expirationDate;
 }

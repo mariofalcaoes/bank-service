@@ -1,6 +1,7 @@
 package com.bank.domain.entity;
 
 
+import com.bank.domain.AccountStatus;
 import com.bank.domain.AccountType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -21,7 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 
 @Builder
@@ -46,8 +47,11 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private AccountType type;
 
+    @Enumerated(EnumType.STRING)
+    private AccountStatus status;
+
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CreditCard> cards;
+    private Set<CreditCard> cards;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
