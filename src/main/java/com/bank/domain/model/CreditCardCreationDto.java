@@ -6,6 +6,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +35,7 @@ public class CreditCardCreationDto {
     private String name;
     @NotEmpty
     @NotNull
+    @Size(min = 3, max = 3)
     private String cvv;
 
     @NotNull

@@ -39,7 +39,7 @@ public class CreditCardController {
         this.creditCardService.remission(creditCardRemissionDto);
     }
 
-    @PatchMapping(value = "/credit-card/cvv")
+    @PatchMapping(value = "/webhook/credit-card/cvv")
     @ResponseStatus(HttpStatus.OK)
     public void update(@Valid @RequestBody CreditCardUpdateDto creditCardUpdateDto) {
         log.info("Update credit card");

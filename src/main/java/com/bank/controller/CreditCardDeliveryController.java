@@ -27,7 +27,7 @@ public class CreditCardDeliveryController {
 
     private final CreditCardDeliveryService creditCardService;
 
-    @PostMapping(value = "/credit-card-delivery")
+    @PostMapping(value = "/webhook/credit-card-delivery")
     @ResponseStatus(HttpStatus.OK)
     public CreditCardDeliveryDto create(@Valid @RequestBody CreditCardDeliveryDto creditCardCreationDto) {
         log.info("Delivery credit card");

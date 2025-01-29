@@ -1,16 +1,21 @@
 package com.bank.service;
 
 import com.bank.domain.CardStatus;
+import com.bank.domain.CardType;
 import com.bank.domain.entity.CreditCard;
 import com.bank.domain.mapper.CreditCardMapper;
 import com.bank.domain.model.CreditCardCreationDto;
 import com.bank.domain.model.CreditCardDto;
 import com.bank.domain.model.CreditCardRemissionDto;
 import com.bank.domain.model.CreditCardUpdateDto;
+import com.bank.exception.BusinessException;
 import com.bank.repository.CreditCardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Slf4j
@@ -31,6 +36,12 @@ public class CreditCardService {
 
     public void remission(CreditCardRemissionDto creditCardRemissionDto) {
         log.info("Remission credit card with data {}", creditCardRemissionDto);
+        Optional<CreditCard> creditCard = this.creditCardRepository.findById(creditCardRemissionDto.getId());
+        if (creditCard.isPresent() && creditCard.get().getType() != CardType.PHYSICAL) {
+            throw new BusinessException("Only physical credit card can be remission", HttpStatus.PRECONDITION_FAILED);
+        } else if (creditCard.isEmpty()) {
+            throw new BusinessException("Card does not exists", HttpStatus.PRECONDITION_FAILED);
+        }
         this.creditCardRepository.updateStatus(creditCardRemissionDto.getId(),
                 creditCardRemissionDto.getReason(), CardStatus.BLOCKED);
         log.info("Credit Card remissioned with success id {}", creditCardRemissionDto.getId());
@@ -38,7 +49,7 @@ public class CreditCardService {
 
     public void updateStatus(Long id, String reason) {
         log.info("Enabling credit card with id {}", id);
-        this.creditCardRepository.updateStatus(id,reason, CardStatus.ENABLED);
+        this.creditCardRepository.updateStatus(id, reason, CardStatus.ENABLED);
         log.info("Credit Card enabled with success id {}", id);
     }
 
