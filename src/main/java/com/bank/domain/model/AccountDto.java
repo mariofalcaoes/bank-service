@@ -1,6 +1,7 @@
 package com.bank.domain.model;
 
 
+import com.bank.domain.AccountStatus;
 import com.bank.domain.AccountType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -25,5 +26,6 @@ public class AccountDto {
     private String number;
     private String agency;
     private AccountType type;
+    private AccountStatus status;
     private List<CreditCardDto> cards;
 }

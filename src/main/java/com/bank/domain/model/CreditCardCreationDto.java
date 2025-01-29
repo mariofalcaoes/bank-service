@@ -4,6 +4,7 @@ package com.bank.domain.model;
 import com.bank.domain.CardType;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -32,6 +33,7 @@ public class CreditCardCreationDto {
 
     @NotEmpty
     @NotNull
+    @Size(min = 5, max = 120)
     private String name;
     @NotEmpty
     @NotNull
@@ -39,6 +41,7 @@ public class CreditCardCreationDto {
     private String cvv;
 
     @NotNull
+    @Min(value = 500)
     private BigDecimal limit;
     @NotNull
     @Enumerated(EnumType.STRING)

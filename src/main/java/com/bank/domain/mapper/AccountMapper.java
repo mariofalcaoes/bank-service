@@ -20,6 +20,7 @@ public class AccountMapper {
         return AccountDto.builder()
                 .number(account.getNumber())
                 .agency(account.getAgency())
+                .status(account.getStatus())
                 .type(account.getType())
                 .id(account.getId())
                 .build();

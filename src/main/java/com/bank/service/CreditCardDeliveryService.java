@@ -25,6 +25,4 @@ public class CreditCardDeliveryService {
         return CreditCardDeliveryMapper.toCreditCardDelivery(creditCard);
     }
 
-
-
 }

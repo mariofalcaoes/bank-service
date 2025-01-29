@@ -53,7 +53,6 @@ public class CreditCardService {
         log.info("Credit Card enabled with success id {}", id);
     }
 
-
     public void updateValidationInfo(CreditCardUpdateDto creditCardUpdateDto) {
         log.info("Update credit card with data {}", creditCardUpdateDto);
         this.creditCardRepository.updateCard(creditCardUpdateDto.getCardId(),

@@ -22,6 +22,7 @@ public class CreditCardMapper {
         return CreditCardDto.builder()
                 .number(creditCard.getNumber())
                 .cvv(creditCard.getCvv())
+                .id(creditCard.getId())
                 .name(creditCard.getName())
                 .expirationDate(creditCard.getExpirationDate())
                 .type(creditCard.getType())
